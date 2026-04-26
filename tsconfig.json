@@ -1,20 +1,128 @@
 {
+	/**
+	 * ============================================================
+	 * 📚 TypeScript 配置文件 - tsconfig.json
+	 * ============================================================
+	 * 
+	 * 【什么是 tsconfig.json？】
+	 * 这是 TypeScript 项目的配置文件
+	 * 定义编译选项、文件包含规则等
+	 */
+	
+	/**
+	 * 【继承配置】
+	 * 
+	 * 【extends 的作用】
+	 * 继承另一个 tsconfig.json 的配置
+	 * 
+	 * 【.svelte-kit/tsconfig.json】
+	 * 这是 SvelteKit 自动生成的配置文件
+	 * 包含：
+	 * - 路径别名（$lib, $app 等）
+	 * - 特殊的 Svelte 文件类型支持
+	 * 
+	 * 【为什么要继承？】
+	 * 1. 减少配置重复
+	 * 2. 自动获得 SvelteKit 的路径别名
+	 * 3. 保持配置同步
+	 */
 	"extends": "./.svelte-kit/tsconfig.json",
+	
+	/**
+	 * 【编译器选项】
+	 */
 	"compilerOptions": {
+		/**
+		 * 【重写相对导入扩展名】
+		 * 允许在导入时省略 .ts 扩展名
+		 */
 		"rewriteRelativeImportExtensions": true,
+		
+		/**
+		 * 【允许 JavaScript】
+		 * 项目中可以使用 .js 文件
+		 * 适合逐步迁移到 TypeScript
+		 */
 		"allowJs": true,
+		
+		/**
+		 * 【检查 JavaScript】
+		 * 对 .js 文件也进行类型检查
+		 * 提高 JS 代码质量
+		 */
 		"checkJs": true,
+		
+		/**
+		 * 【ES 模块互操作】
+		 * 允许 CommonJS 和 ES Module 混用
+		 * 兼容不同模块系统
+		 */
 		"esModuleInterop": true,
+		
+		/**
+		 * 【强制文件名大小写一致】
+		 * 避免大小写导致的跨平台问题
+		 * Windows 不区分大小写，Linux 区分
+		 */
 		"forceConsistentCasingInFileNames": true,
+		
+		/**
+		 * 【解析 JSON 模块】
+		 * 允许导入 JSON 文件
+		 * import config from './config.json'
+		 */
 		"resolveJsonModule": true,
+		
+		/**
+		 * 【跳过库检查】
+		 * 跳过 node_modules 中类型声明检查
+		 * 加快编译速度
+		 */
 		"skipLibCheck": true,
+		
+		/**
+		 * 【生成 SourceMap】
+		 * 调试时可以映射到源代码
+		 * 方便开发调试
+		 */
 		"sourceMap": true,
+		
+		/**
+		 * 【严格模式】
+		 * 启用所有严格类型检查选项
+		 * 包括：
+		 * - strictNullChecks: 严格空值检查
+		 * - strictFunctionTypes: 严格函数类型检查
+		 * - noImplicitAny: 禁止隐式 any
+		 * - noImplicitThis: 禁止隐式 this
+		 * 
+		 * 【推荐开启】
+		 * 虽然可能需要更多类型标注
+		 * 但能发现更多潜在错误
+		 */
 		"strict": true,
+		
+		/**
+		 * 【模块解析策略】
+		 * "bundler" 是 TypeScript 5.0+ 新增的解析模式
+		 * 专为打包工具设计
+		 * 
+		 * 【其他选项】
+		 * - "node": Node.js 风格
+		 * - "classic": 旧版 TypeScript 风格（已弃用）
+		 */
 		"moduleResolution": "bundler"
 	}
-	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
-	// except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
-	//
-	// To make changes to top-level options such as include and exclude, we recommend extending
-	// the generated config; see https://svelte.dev/docs/kit/configuration#typescript
+	
+	/**
+	 * 【路径别名说明】
+	 * 路径别名由 SvelteKit 自动处理
+	 * - $lib: 指向 src/lib 目录
+	 * - $app: SvelteKit 的运行时 API
+	 * - $stores: 自定义别名（可在 svelte.config.js 配置）
+	 * 
+	 * 参考：
+	 * - https://svelte.dev/docs/kit/configuration#alias
+	 * - https://svelte.dev/docs/kit/configuration#files
+	 */
 }
