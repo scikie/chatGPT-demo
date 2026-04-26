@@ -1,191 +1,32 @@
-/**
- * ============================================================
- * 📚 项目清单文件 - package.json
- * ============================================================
- * 
- * 【什么是 package.json？】
- * 这是 Node.js 项目的配置文件
- * 定义项目信息、依赖、脚本等
- */
-
 {
-	/**
-	 * 【项目名称】
-	 * 用于标识项目
-	 */
 	"name": "chatgpt",
-	
-	/**
-	 * 【私有项目】
-	 * true 表示不会发布到 npm
-	 * 防止意外发布
-	 */
 	"private": true,
-	
-	/**
-	 * 【版本号】
-	 * 遵循语义化版本（Semantic Versioning）
-	 * 格式：major.minor.patch（主版本.次版本.补丁版本）
-	 */
 	"version": "0.0.1",
-	
-	/**
-	 * 【模块类型】
-	 * "module" 表示使用 ES Modules
-	 * 
-	 * 【ES Modules vs CommonJS】
-	 * - ES Modules: import/export（现代标准）
-	 * - CommonJS: require/module.exports（旧标准）
-	 * 
-	 * SvelteKit 默认使用 ES Modules
-	 */
 	"type": "module",
-	
-	/**
-	 * 【脚本命令】
-	 * 
-	 * 通过 npm run <script-name> 执行
-	 */
 	"scripts": {
-		/**
-		 * 【开发服务器】
-		 * npm run dev
-		 * 启动开发服务器，支持热更新
-		 */
 		"dev": "vite dev",
-		
-		/**
-		 * 【生产构建】
-		 * npm run build
-		 * 构建生产版本
-		 */
 		"build": "vite build",
-		
-		/**
-		 * 【预览构建】
-		 * npm run preview
-		 * 预览构建后的生产版本
-		 */
 		"preview": "vite preview",
-		
-		/**
-		 * 【安装后脚本】
-		 * npm install 后自动执行
-		 * sync 确保 SvelteKit 类型定义是最新的
-		 */
 		"prepare": "svelte-kit sync || echo ''",
-		
-		/**
-		 * 【类型检查】
-		 * npm run check
-		 * 检查 TypeScript 和 Svelte 类型
-		 */
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		
-		/**
-		 * 【监听模式检查】
-		 * npm run check:watch
-		 * 文件变化时自动重新检查
-		 */
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
-	
-	/**
-	 * 【开发依赖】
-	 * 
-	 * devDependencies: 只在开发时需要的包
-	 * 生产构建时不会包含
-	 */
 	"devDependencies": {
-		/**
-		 * 【SvelteKit 适配器】
-		 * adapter-auto 自动选择部署平台的适配器
-		 */
 		"@sveltejs/adapter-auto": "^7.0.1",
-		
-		/**
-		 * 【SvelteKit 框架】
-		 * 核心框架，提供路由、SSR 等功能
-		 */
+		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
-		
-		/**
-		 * 【Vite 的 Svelte 插件】
-		 * 让 Vite 能处理 .svelte 文件
-		 */
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
-		
-		/**
-		 * 【PostCSS 和插件】
-		 * CSS 预处理器
-		 * - autoprefixer: 自动添加浏览器前缀（如 -webkit-）
-		 * - postcss: PostCSS 核心
-		 * 
-		 * 【什么是浏览器前缀？】
-		 * 某些 CSS 特性在不同浏览器需要前缀：
-		 * - -webkit- (Chrome, Safari)
-		 * - -moz- (Firefox)
-		 * - -ms- (Edge)
-		 * autoprefixer 自动添加这些前缀
-		 */
 		"autoprefixer": "^10.4.20",
 		"postcss": "^8.4.49",
-		
-		/**
-		 * 【Svelte 5】
-		 * Svelte 框架核心
-		 */
 		"svelte": "^5.55.2",
-		
-		/**
-		 * 【Svelte 类型检查器】
-		 * 检查 Svelte 组件的类型错误
-		 */
 		"svelte-check": "^4.4.6",
-		
-		/**
-		 * 【Tailwind CSS】
-		 * 原子化 CSS 框架
-		 */
 		"tailwindcss": "^3.4.17",
-		
-		/**
-		 * 【TypeScript】
-		 * TypeScript 编译器
-		 */
 		"typescript": "^6.0.2",
-		
-		/**
-		 * 【Vite】
-		 * 下一代前端构建工具
-		 */
 		"vite": "^8.0.7"
 	},
-	
-	/**
-	 * 【生产依赖】
-	 * 
-	 * dependencies: 生产环境需要的包
-	 * 会被打包到最终产物中
-	 */
 	"dependencies": {
-		/**
-		 * 【代码高亮】
-		 * highlight.js: 语法高亮库
-		 * 支持 190+ 种编程语言
-		 */
 		"highlight.js": "^11.11.1",
-		
-		/**
-		 * 【Markdown 解析器】
-		 * marked: 将 Markdown 转换为 HTML
-		 */
 		"marked": "^15.0.6",
-		
-		/**
-		 * 【marked 高亮插件】
-		 * 让 marked 支持 highlight.js 集成
-		 */
 		"marked-highlight": "^2.2.1"
 	}
 }

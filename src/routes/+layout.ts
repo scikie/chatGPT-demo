@@ -87,3 +87,4 @@ export const load: LayoutLoad = () => {
  * - 使用服务器功能的页面
  */
 export const prerender = true;
+export const ssr = false;
